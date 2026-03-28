@@ -4,6 +4,7 @@ metadata:
   name: akshay-k8s-agent-prod
   project: akshay-2
 spec:
+  active: true
   cluster:
     name: akshay-amd-prod-1
   config:
@@ -15,4 +16,4 @@ spec:
         cpu: 255m
         memory: 1Gi
   type: Cluster
-  version: r4.0.1
+  version: r3.7.0
