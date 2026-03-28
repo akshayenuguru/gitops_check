@@ -1,0 +1,19 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: akshay-k8s-agent-prod
+  project: akshay-2
+spec:
+  active: true
+  cluster:
+    name: akshay-amd-prod-1
+  config:
+    concurrency: 55
+    environment:
+      numWorkers: 15
+    kubernetes:
+      limits:
+        cpu: 255m
+        memory: 1Gi
+  type: Cluster
+  version: r4.0.1
