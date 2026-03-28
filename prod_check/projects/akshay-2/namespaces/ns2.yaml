@@ -1,0 +1,6 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: ns2
+  project: akshay-2
+spec: {}
