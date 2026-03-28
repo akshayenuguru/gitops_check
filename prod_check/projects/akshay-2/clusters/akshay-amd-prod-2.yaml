@@ -2,7 +2,7 @@ apiVersion: infra.k8smgmt.io/v3
 kind: Cluster
 metadata:
   labels:
-    cluster: "2"
+    cluster: c2
   name: akshay-amd-prod-2
   project: akshay-2
 spec:
