@@ -1,0 +1,9 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: doc-tb-p1
+  project: project1
+spec:
+  active: true
+  type: Docker
+  version: r4.0.1
