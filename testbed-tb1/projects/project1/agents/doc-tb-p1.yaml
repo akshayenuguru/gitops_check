@@ -5,5 +5,9 @@ metadata:
   project: project1
 spec:
   active: true
+  sharing:
+    enabled: true
+    projects:
+    - name: project2
   type: Docker
   version: r4.0.1
