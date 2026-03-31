@@ -1,16 +1,19 @@
 apiVersion: gitops.k8smgmt.io/v3
 kind: Agent
 metadata:
-  name: test1
+  name: agentk
   project: defaultproject
 spec:
+  active: true
+  cluster:
+    name: c1-tb2
   config:
     concurrency: 55
-    docker:
+    environment:
+      numWorkers: 15
+    kubernetes:
       limits:
         cpu: 255m
         memory: 1Gi
-    environment:
-      numWorkers: 15
-  type: Docker
-  version: r4.0.0
+  type: Cluster
+  version: r4.1.0
