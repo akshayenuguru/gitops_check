@@ -14,4 +14,3 @@ spec:
     environment:
       numWorkers: 15
   type: Docker
-
