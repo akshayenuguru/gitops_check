@@ -1,0 +1,18 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  description: adding new things - private ones
+  name: addon2
+  project: akshay
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: nginx-workload.yaml
+      repository: akshay-git-p
+      revision: main
+    type: Yaml
+  namespace: mks-namespace
+  sharing: {}
+  version: v3
+  versionState: active

@@ -1,0 +1,11 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: akshay-git
+  project: akshay
+spec:
+  agents:
+  - {}
+  endpoint: https://github.com/akshayenuguru/nginx-learning.git
+  options: {}
+  type: Git

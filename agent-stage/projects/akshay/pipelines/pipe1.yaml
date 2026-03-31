@@ -1,0 +1,30 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Pipeline
+metadata:
+  name: pipe1
+  project: akshay
+spec:
+  stages:
+  - config:
+      destinationRepo: {}
+      gitToSystemSync: true
+      includedResources:
+      - name: Agent
+      - name: Cluster
+      sourceAsDestination: true
+      sourceRepo:
+        path:
+          name: agent-stage
+        repository: akshay-repo
+        revision: main
+      systemToGitSync: true
+    name: s1
+    type: SystemSync
+  triggers:
+  - config:
+      repo:
+        provider: Github
+        repository: akshay-repo
+        revision: main
+    name: t1
+    type: Webhook

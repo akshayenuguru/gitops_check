@@ -1,0 +1,16 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  description: adding new things
+  name: addon1
+  project: akshay
+spec:
+  artifact:
+    artifact:
+      url:
+      - https://raw.githubusercontent.com/akshayenuguru/nginx-learning/refs/heads/main/addon1.yaml
+    type: Yaml
+  namespace: mks-namespace
+  sharing: {}
+  version: v1
+  versionState: active
