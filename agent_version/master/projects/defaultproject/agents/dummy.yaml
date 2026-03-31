@@ -1,0 +1,11 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: dummy
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: mini-sanity-1
+  type: Cluster
+  version: r4.1.0
