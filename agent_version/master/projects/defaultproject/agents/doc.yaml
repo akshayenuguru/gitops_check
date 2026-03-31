@@ -14,4 +14,4 @@ spec:
     environment:
       numWorkers: 15
   type: Docker
-  version: r4.1.0
+  version: r4.0.1
