@@ -4,7 +4,6 @@ metadata:
   name: test-2
   project: defaultproject
 spec:
-  active: true
   config:
     concurrency: 55
     docker:
