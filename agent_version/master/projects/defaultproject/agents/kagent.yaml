@@ -1,0 +1,18 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: kagent
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: akshay-amd-mas
+  config:
+    concurrency: 51
+    environment:
+      numWorkers: 11
+    kubernetes:
+      limits:
+        cpu: 251m
+  type: Cluster
+  version: r4.1.0
