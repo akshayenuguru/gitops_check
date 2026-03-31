@@ -1,0 +1,19 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: k3d-agent
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: c1
+  config:
+    concurrency: 55
+    environment:
+      numWorkers: 15
+    kubernetes:
+      limits:
+        cpu: 255m
+        memory: 2Gi
+  type: Cluster
+  version: r3.7.0
