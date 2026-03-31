@@ -1,0 +1,29 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: WorkflowHandler
+metadata:
+  name: wfh3
+  project: akshay-2
+spec:
+  config:
+    function:
+      kubeOptions:
+        securityContext:
+          readOnlyRootFileSystem: true
+      language: python
+      name: funtion1
+      skipBuild: false
+      source: |-
+        from logging import Logger
+        from typing import Dict, Any
+
+
+        def handle(logger: Logger, request: Dict[str, Any]) -> Dict[str, Any]:
+            logger.info(f"received request, req: {request}")
+            print("Hello buddy")
+            return {
+                "status": "success",
+                "message": "Hello buddy"
+            }
+      targetPlatforms:
+      - linux/amd64
+    type: function

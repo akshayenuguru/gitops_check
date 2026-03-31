@@ -1,0 +1,17 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: EnvironmentTemplate
+metadata:
+  name: et2
+  project: akshay-2
+spec:
+  agents:
+  - name: agent-doc-1
+  allowScheduleOverrides: false
+  resources:
+  - kind: resourcetemplate
+    name: rt2
+    resourceOptions:
+      version: v1
+    type: dynamic
+  version: v1
+  versionState: draft

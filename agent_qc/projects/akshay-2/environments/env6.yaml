@@ -1,0 +1,12 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: env6
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  template:
+    name: et3
+    version: "1"
+    versionState: unspecified

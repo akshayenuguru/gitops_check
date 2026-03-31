@@ -1,0 +1,9 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: AgentPool
+metadata:
+  name: p1
+  project: akshay-2
+spec:
+  agents:
+  - test-agent
+  - akshay-agent

@@ -1,0 +1,11 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: email-notifications
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  endpoint: https://github.com/akshayenuguru/email-notifications.git
+  options: {}
+  type: Git

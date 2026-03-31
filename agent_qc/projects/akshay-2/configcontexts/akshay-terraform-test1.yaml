@@ -1,0 +1,49 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ConfigContext
+metadata:
+  description: for practice
+  name: akshay-terraform-test1
+  project: akshay-2
+spec:
+  envs:
+  - key: AWS_ACCESS_KEY
+    options:
+      mask: true
+      override:
+        type: allowed
+      sensitive: true
+    value: sealed://AWS_ACCESS_KEY.
+  - key: AWS_SECRET_KEY
+    options:
+      mask: true
+      override:
+        type: allowed
+      sensitive: true
+    value: sealed://AWS_SECRET_KEY.
+  secret:
+    name: file://artifacts/akshay-terraform-test1/sealed-secret.yaml
+  variables:
+  - name: region
+    options:
+      override:
+        type: allowed
+    value: us-west-2
+    valueType: text
+  - name: instance_type
+    options:
+      override:
+        type: allowed
+    value: t3.micro
+    valueType: text
+  - name: instance_name
+    options:
+      override:
+        type: allowed
+    value: akshay-test
+    valueType: text
+  - name: key_name
+    options:
+      override:
+        type: allowed
+    value: akshay-key
+    valueType: text

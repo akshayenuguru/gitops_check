@@ -1,0 +1,11 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: akshay-git-s3
+  project: akshay-2
+spec:
+  agents:
+  - name: akshay-agent
+  endpoint: https://github.com/akshayenuguru/environment-learning-s3.git
+  options: {}
+  type: Git

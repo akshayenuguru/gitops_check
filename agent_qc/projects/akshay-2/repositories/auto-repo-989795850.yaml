@@ -1,0 +1,17 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: auto-repo-989795850
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  credentials:
+    password: sealed://credentials.password
+    username: dummy-user
+  endpoint: https://github.com/dummy/repo.git
+  options:
+    insecure: true
+  secret:
+    name: file://artifacts/auto-repo-989795850/sealed-secret.yaml
+  type: Git

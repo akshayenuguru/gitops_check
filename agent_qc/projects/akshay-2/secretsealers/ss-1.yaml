@@ -1,0 +1,8 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: SecretSealer
+metadata:
+  name: ss-1
+  project: akshay-2
+spec:
+  type: KubeSeal
+  version: v-1

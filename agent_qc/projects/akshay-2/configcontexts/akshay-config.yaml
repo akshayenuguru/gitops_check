@@ -1,0 +1,43 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ConfigContext
+metadata:
+  description: for practice
+  name: akshay-config
+  project: akshay-2
+spec:
+  envs:
+  - key: AWS_ACCESS_KEY
+    options:
+      mask: true
+      override:
+        type: allowed
+      sensitive: true
+    value: sealed://AWS_ACCESS_KEY.
+  - key: AWS_SECRET_KEY
+    options:
+      mask: true
+      override:
+        type: allowed
+      sensitive: true
+    value: sealed://AWS_SECRET_KEY.
+  secret:
+    name: file://artifacts/akshay-config/sealed-secret.yaml
+  variables:
+  - name: INSTANCE_TYPE
+    options:
+      override:
+        type: allowed
+    value: t3.micro
+    valueType: text
+  - name: instance_name
+    options:
+      override:
+        type: allowed
+    value: akshay-learning
+    valueType: text
+  - name: instance_region
+    options:
+      override:
+        type: allowed
+    value: us-west-2
+    valueType: text

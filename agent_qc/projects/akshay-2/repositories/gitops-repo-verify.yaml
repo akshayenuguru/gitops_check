@@ -1,0 +1,17 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: gitops-repo-verify
+  project: akshay-2
+spec:
+  agents:
+  - name: a
+  credentials:
+    password: sealed://credentials.password
+    username: akshay@rafay.co
+  endpoint: https://github.com/akshayenuguru/gitops_to_ignore_certain_files.git
+  options:
+    provider: Gitlab
+  secret:
+    name: file://artifacts/gitops-repo-verify/sealed-secret.yaml
+  type: Git

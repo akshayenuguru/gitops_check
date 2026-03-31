@@ -1,0 +1,209 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ResourceTemplate
+metadata:
+  name: auto-resourcetemplate-779431138
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  contexts:
+  - name: auto-configcontext-779431138
+  hooks:
+    provider:
+      terraform:
+        deploy:
+          apply:
+            after:
+            - name: rt-deploy-apply-after
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: 'Resource Template: Terraform apply has completed for instance:
+                      auto-ubuntu2-779431138'
+                    receivers:
+                    - akshayenuguru3@gmail.com
+                    sender: akshay+sender@rafay.co
+                    subject: RT - Deploy Applied - auto-ubuntu2-779431138
+                  type: email
+              type: notification
+            before:
+            - name: rt-deploy-apply-before
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: 'Resource Template: Terraform apply is starting for instance:
+                      auto-ubuntu2-779431138'
+                    receivers:
+                    - akshayenuguru3@gmail.com
+                    sender: akshay+sender@rafay.co
+                    subject: RT - Deploy Apply Starting - auto-ubuntu2-779431138
+                  type: email
+              type: notification
+          init:
+            after:
+            - name: rt-deploy-init-after
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: 'Resource Template: Terraform deployment initialization
+                      has completed for instance: auto-ubuntu2-779431138'
+                    receivers:
+                    - akshayenuguru3@gmail.com
+                    sender: akshay+sender@rafay.co
+                    subject: RT - Deploy Init Completed - auto-ubuntu2-779431138
+                  type: email
+              type: notification
+            before:
+            - name: rt-deploy-init-before
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: 'Resource Template: Terraform deployment initialization
+                      has started for instance: auto-ubuntu2-779431138'
+                    receivers:
+                    - akshayenuguru3@gmail.com
+                    sender: akshay+sender@rafay.co
+                    subject: RT - Deploy Init Started - auto-ubuntu2-779431138
+                  type: email
+              type: notification
+          output:
+            after:
+            - name: rt-deploy-output-after
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: 'Resource Template: Terraform deployment outputs are available
+                      for instance: auto-ubuntu2-779431138'
+                    receivers:
+                    - akshayenuguru3@gmail.com
+                    sender: akshay+sender@rafay.co
+                    subject: RT - Deploy Outputs Available - auto-ubuntu2-779431138
+                  type: email
+              type: notification
+            before:
+            - name: rt-deploy-output-before
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: 'Resource Template: Terraform output generation is starting
+                      for instance: auto-ubuntu2-779431138'
+                    receivers:
+                    - akshayenuguru3@gmail.com
+                    sender: akshay+sender@rafay.co
+                    subject: RT - Deploy Output Starting - auto-ubuntu2-779431138
+                  type: email
+              type: notification
+          plan:
+            after:
+            - name: rt-deploy-plan-after
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: 'Resource Template: Terraform plan has been generated for
+                      instance: auto-ubuntu2-779431138'
+                    receivers:
+                    - akshayenuguru3@gmail.com
+                    sender: akshay+sender@rafay.co
+                    subject: RT - Deploy Plan Generated - auto-ubuntu2-779431138
+                  type: email
+              type: notification
+            before:
+            - name: rt-deploy-plan-before
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: 'Resource Template: Terraform plan is starting for instance:
+                      auto-ubuntu2-779431138'
+                    receivers:
+                    - akshayenuguru3@gmail.com
+                    sender: akshay+sender@rafay.co
+                    subject: RT - Deploy Plan Starting - auto-ubuntu2-779431138
+                  type: email
+              type: notification
+        destroy:
+          destroy:
+            after:
+            - name: rt-destroy-after
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: 'Resource Template: Terraform destroy has completed for
+                      instance: auto-ubuntu2-779431138'
+                    receivers:
+                    - akshayenuguru3@gmail.com
+                    sender: akshay+sender@rafay.co
+                    subject: RT - Destroy Completed - auto-ubuntu2-779431138
+                  type: email
+              type: notification
+            before:
+            - name: rt-destroy-before
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: 'Resource Template: Terraform destroy is starting for instance:
+                      auto-ubuntu2-779431138'
+                    receivers:
+                    - akshayenuguru3@gmail.com
+                    sender: akshay+sender@rafay.co
+                    subject: RT - Destroy Starting - auto-ubuntu2-779431138
+                  type: email
+              type: notification
+          init:
+            after:
+            - name: rt-destroy-init-after
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: 'Resource Template: Terraform destroy initialization has
+                      completed for instance: auto-ubuntu2-779431138'
+                    receivers:
+                    - akshayenuguru3@gmail.com
+                    sender: akshay+sender@rafay.co
+                    subject: RT - Destroy Init Completed - auto-ubuntu2-779431138
+                  type: email
+              type: notification
+            before:
+            - name: rt-destroy-init-before
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: 'Resource Template: Terraform destroy initialization has
+                      started for instance: auto-ubuntu2-779431138'
+                    receivers:
+                    - akshayenuguru3@gmail.com
+                    sender: akshay+sender@rafay.co
+                    subject: RT - Destroy Init Started - auto-ubuntu2-779431138
+                  type: email
+              type: notification
+  provider: terraform
+  providerOptions:
+    terraform:
+      backendType: system
+  repositoryOptions:
+    branch: main
+    directoryPath: example-2
+    name: example-2
+  variables:
+  - name: ami_id
+    value: ami-0854e54abaeae283b
+    valueType: text
+  - name: instance_name
+    value: auto-ubuntu2-779431138
+    valueType: text
+  - name: instance_type
+    value: t3.micro
+    valueType: text
+  version: v1
+  versionState: draft

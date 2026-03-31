@@ -1,0 +1,45 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ConfigContext
+metadata:
+  description: AWS credentials and EC2 runtime inputs
+  name: aws-config-email
+  project: akshay-2
+spec:
+  envs:
+  - key: AWS_ACCESS_KEY_ID
+    options:
+      mask: true
+      override:
+        type: allowed
+      sensitive: true
+    value: sealed://AWS_ACCESS_KEY_ID.
+  - key: AWS_SECRET_ACCESS_KEY
+    options:
+      mask: true
+      override:
+        type: allowed
+      sensitive: true
+    value: sealed://AWS_SECRET_ACCESS_KEY.
+  - key: aws_region
+    value: us-west-2
+  secret:
+    name: file://artifacts/aws-config-email/sealed-secret.yaml
+  variables:
+  - name: instance_type
+    options:
+      description: EC2 instance type
+      required: true
+    value: t3.micro
+    valueType: text
+  - name: instance_name
+    options:
+      description: EC2 instance name
+      required: true
+    value: akshay-email-notification
+    valueType: text
+  - name: key_name
+    options:
+      description: AWS EC2 key pair name
+      required: true
+    value: akshay-key
+    valueType: text

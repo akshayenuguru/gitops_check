@@ -1,0 +1,66 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ConfigContext
+metadata:
+  name: auto-configcontext-333093251
+  project: akshay-2
+spec:
+  envs:
+  - key: AWS_ACCESS_KEY_ID
+    options:
+      mask: true
+    sensitive: true
+    value: sealed://AWS_ACCESS_KEY_ID.
+  - key: AWS_SECRET_ACCESS_KEY
+    options:
+      mask: true
+    sensitive: true
+    value: sealed://AWS_SECRET_ACCESS_KEY.
+  secret:
+    name: file://artifacts/auto-configcontext-333093251/sealed-secret.yaml
+  variables:
+  - name: name1
+    options:
+      override:
+        type: allowed
+    value: auto-ubuntu1-333093251
+    valueType: text
+  - name: name
+    options:
+      override:
+        type: allowed
+    value: auto-ubuntu2-333093251
+    valueType: text
+  - name: aws_region
+    options:
+      override:
+        restrictedValues:
+        - us-west-2
+        - us-west-1
+        - us-east-1
+        type: restricted
+      required: true
+    value: us-west-2
+    valueType: text
+  - name: ami_id
+    options:
+      override:
+        type: allowed
+    value: ami-0854e54abaeae283b
+    valueType: text
+  - name: aws_region_az
+    options:
+      override:
+        restrictedValues:
+        - us-west-1a
+        - us-west-2a
+        - us-east-1a
+        - us-east-1b
+        type: restricted
+    value: us-west-2a
+    valueType: text
+  - name: instance_type
+    options:
+      override:
+        type: allowed
+    value: t3.micro
+    valueType: text

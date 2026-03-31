@@ -1,0 +1,16 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: repo
+  project: akshay-2
+spec:
+  agents:
+  - name: doc-agent
+  credentials:
+    password: sealed://credentials.password
+    username: akshay@rafay.co
+  endpoint: https://github.com/akshayenuguru/gitops_check.git
+  options: {}
+  secret:
+    name: file://artifacts/repo/sealed-secret.yaml
+  type: Git

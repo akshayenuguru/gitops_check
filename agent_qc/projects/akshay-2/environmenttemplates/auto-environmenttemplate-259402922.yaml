@@ -1,0 +1,16 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: EnvironmentTemplate
+metadata:
+  description: environment template created via terraform
+  name: auto-environmenttemplate-259402922
+  project: akshay-2
+spec:
+  allowScheduleOverrides: false
+  resources:
+  - kind: resourcetemplate
+    name: auto-resourcetemplate-259402922
+    resourceOptions:
+      version: v1
+    type: dynamic
+  version: v1
+  versionState: active

@@ -1,0 +1,25 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  description: this env brings up 2 aws instances
+  name: auto-environment-143097535
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  template:
+    name: auto-environmenttemplate-143097535
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: aws_region
+    options:
+      override:
+        restrictedValues:
+        - us-west-2
+        - us-west-1
+        - us-east-1
+        type: restricted
+      required: true
+    value: us-west-2
+    valueType: text

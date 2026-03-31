@@ -1,0 +1,95 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ResourceTemplate
+metadata:
+  description: email notification through terraform
+  name: email-rt1
+  project: akshay-2
+spec:
+  contexts:
+  - name: akshay-config
+  hooks:
+    provider:
+      terraform:
+        deploy:
+          apply:
+            before:
+            - agents:
+              - name: test-agent
+              description: email tera providing
+              name: apply1
+              onFailure: unspecified
+              options:
+                notification:
+                  email:
+                    body: testing+provider
+                    receivers:
+                    - akshay+receiver+@rafay.co
+                    sender: akshay+sender+@rafay.co
+                    subject: testing - provider
+                  type: email
+              type: notification
+          init:
+            before:
+            - agents:
+              - name: test-agent
+              description: email terraform initializing
+              name: init1
+              onFailure: unspecified
+              options:
+                notification:
+                  email:
+                    body: for testing purpose
+                    receivers:
+                    - akshay+receiver+@rafay.co
+                    sender: akshay+sender+@rafay.co
+                    subject: for verification
+                  type: email
+              type: notification
+          output:
+            before:
+            - agents:
+              - name: test-agent
+              description: email tera output
+              name: output1
+              onFailure: unspecified
+              options:
+                notification:
+                  email:
+                    body: testing+output
+                    receivers:
+                    - akshay+receiver+@rafay.co
+                    sender: akshay+sender+@rafay.co
+                    subject: testing+output
+                  type: email
+              type: notification
+          plan:
+            before:
+            - agents:
+              - name: test-agent
+              description: email tera providing
+              name: planing1
+              onFailure: unspecified
+              options:
+                notification:
+                  email:
+                    body: testing
+                    receivers:
+                    - akshay+receiver+@rafay.co
+                    sender: akshay+sender+@rafay.co
+                    subject: testing
+                  type: email
+              type: notification
+        destroy:
+          destroy: {}
+          init: {}
+          plan: {}
+  provider: terraform
+  providerOptions:
+    terraform:
+      backendType: system
+      refresh: true
+  repositoryOptions:
+    branch: main
+    name: akshay-git
+  version: v1
+  versionState: draft

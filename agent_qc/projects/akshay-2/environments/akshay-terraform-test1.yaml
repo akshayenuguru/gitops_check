@@ -1,0 +1,13 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  description: 'for practice '
+  name: akshay-terraform-test1
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  template:
+    name: akshay-terraform-test1
+    version: v1
+    versionState: unspecified

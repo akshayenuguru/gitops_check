@@ -1,0 +1,14 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: WorkflowHandler
+metadata:
+  name: wfh4
+  project: akshay-2
+spec:
+  config:
+    function:
+      image: akshayenuguru/hello-function
+      language: python
+      skipBuild: true
+      targetPlatforms:
+      - linux/amd64
+    type: function

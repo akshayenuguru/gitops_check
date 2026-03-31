@@ -1,0 +1,34 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  description: environment created via terraform with both RT and ET hooks
+  name: auto-environment-333093251
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  template:
+    name: auto-environmenttemplate-333093251
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: aws_region
+    options:
+      override:
+        restrictedValues:
+        - us-west-2
+        - us-west-1
+        - us-east-1
+        type: restricted
+      required: true
+    value: us-west-2
+    valueType: text
+  - name: ami_id
+    value: ami-0854e54abaeae283b
+    valueType: text
+  - name: instance_name
+    value: auto-ubuntu2-333093251
+    valueType: text
+  - name: instance_type
+    value: t3.micro
+    valueType: text

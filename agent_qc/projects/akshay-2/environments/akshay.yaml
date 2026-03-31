@@ -1,0 +1,13 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  description: for learning
+  name: akshay
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  template:
+    name: akshay-etl
+    version: v1
+    versionState: unspecified

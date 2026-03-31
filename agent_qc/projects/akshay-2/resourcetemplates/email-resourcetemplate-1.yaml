@@ -1,0 +1,137 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ResourceTemplate
+metadata:
+  name: email-resourcetemplate-1
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  contexts:
+  - name: aws-config-email
+  hooks:
+    provider:
+      terraform:
+        deploy:
+          apply:
+            after:
+            - name: rt-apply-notification
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: rt-apply+#{project.name}#
+                    ccs:
+                    - akshayenuguru3+#{project.name}#@gmail.com
+                    receivers:
+                    - akshay+receiver@rafay.co
+                    sender: akshay+sender@rafay.co
+                    subject: rt-apply+#{project.name}#
+                  type: email
+              type: notification
+          init:
+            before:
+            - name: rt-init-notification
+              onFailure: unspecified
+              options:
+                notification:
+                  email:
+                    body: 'rt-init #{project.name}#'
+                    ccs:
+                    - akshayenuguru3@gmail.com+#{project.name}#
+                    receivers:
+                    - akshay+receiver@rafay.co
+                    sender: akshay+sender@rafay.co
+                    subject: rt-init+#{project.name.id}#
+                  type: email
+              type: notification
+          output:
+            after:
+            - name: rt-output-notification
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    bccs:
+                    - akshayenuguru3+#{project.name}#@gmail.com
+                    body: rt-output+#{project.name}#
+                    receivers:
+                    - akshay+receiver@rafay.co
+                    sender: akshay+sender@rafay.co
+                    subject: rt-output+#{project.name}#
+                  type: email
+              type: notification
+          plan:
+            before:
+            - name: rt-plan-notification
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    bccs:
+                    - akshayenuguru3+#{project.name}#@gmail.com
+                    body: rt-plan +#{project.name}#
+                    receivers:
+                    - akshay+receiver@rafay.co
+                    sender: akshay+sender@rafay.co
+                    subject: rt-plan
+                  type: email
+              type: notification
+        destroy:
+          destroy:
+            after:
+            - name: rt-destroy-notification
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: rt-destroy-destroy+#{project.name}#
+                    ccs:
+                    - akshayenuguru3@gmail.com
+                    receivers:
+                    - akshay+receiver@rafay.co
+                    sender: akshay+sender@rafay.co
+                    subject: rt-destroy-destroy+#{project.name}#
+                  type: email
+              type: notification
+          init:
+            after:
+            - name: rt-destroy-init-notification
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    body: rt-destroy-init+#{project.name}#
+                    ccs:
+                    - akshayenuguru3+#{project.name}#@gmail.com
+                    receivers:
+                    - akshay+receiver@rafay.co
+                    sender: akshay+sender@rafay.co
+                    subject: rt-destroy-init+#{project.name}#
+                  type: email
+              type: notification
+          plan:
+            after:
+            - name: rt-destroy-plan-notification
+              onFailure: continue
+              options:
+                notification:
+                  email:
+                    bccs:
+                    - akshayenuguru3@gmail.com
+                    body: rt-destroy-plan+#{project.name}#
+                    receivers:
+                    - akshay+receiver@rafay.co
+                    sender: akshay+sender@rafay.co
+                    subject: rt-destroy-plan+#{project.name}#
+                  type: email
+              type: notification
+  provider: terraform
+  providerOptions:
+    terraform:
+      backendType: system
+  repositoryOptions:
+    branch: main
+    directoryPath: email-test
+    name: email-notifications
+  version: v2
+  versionState: draft

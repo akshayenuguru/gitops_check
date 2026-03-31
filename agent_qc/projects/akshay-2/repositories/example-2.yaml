@@ -1,0 +1,11 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: example-2
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  endpoint: https://github.com/akshayenuguru/email-tf.git
+  options: {}
+  type: Git

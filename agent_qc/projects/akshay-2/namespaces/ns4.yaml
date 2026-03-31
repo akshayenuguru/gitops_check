@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  labels:
+    ns: "4"
+  name: ns4
+  project: akshay-2
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: akshay-qc-mks1
+    - key: rafay.dev/clusterName
+      value: akshay-amd-qc
+  resourceQuotas: {}

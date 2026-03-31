@@ -1,0 +1,20 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ResourceTemplate
+metadata:
+  name: auto-resourcetemplate-134840445
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  contexts:
+  - name: auto-configcontext-134840445
+  provider: terraform
+  providerOptions:
+    terraform:
+      backendType: system
+  repositoryOptions:
+    branch: main
+    directoryPath: example-2
+    name: example-2
+  version: v1
+  versionState: draft

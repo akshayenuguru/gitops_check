@@ -1,0 +1,12 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  description: git connection
+  name: akshay-git
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  endpoint: https://github.com/akshayenuguru/environment-learning.git
+  options: {}
+  type: Git

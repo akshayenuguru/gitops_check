@@ -1,0 +1,79 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: EnvironmentTemplate
+metadata:
+  description: for practice
+  name: email-envtemplate-1
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  allowScheduleOverrides: false
+  hooks:
+    onCompletion:
+    - name: et-completion-notification
+      onFailure: continue
+      options:
+        notification:
+          email:
+            body: 'et--on_completion+ #{project.name}# '
+            ccs:
+            - akshayenuguru3+#{project.name}#@gmail.com
+            receivers:
+            - akshay+receiver@rafay.co
+            sender: akshay+sender@rafay.co
+            subject: 'et--on_completion #{project.name}#'
+          type: email
+      type: notification
+    onFailure:
+    - name: et-failure-notification
+      onFailure: continue
+      options:
+        notification:
+          email:
+            body: 'et--on_failure #{project.name}#'
+            ccs:
+            - akshayenuguru3+#{project.name}#@gmail.com
+            receivers:
+            - akshay+receiver@rafay.co
+            sender: akshay+sender@rafay.co
+            subject: 'et--on_failure #{project.name}#'
+          type: email
+      type: notification
+    onInit:
+    - name: et-init-notification
+      onFailure: unspecified
+      options:
+        notification:
+          email:
+            bccs:
+            - akshayenuguru2@gmail.com
+            body: 'et--on_init+#{project.name}# '
+            ccs:
+            - akshayenuguru3@gmail.com
+            sender: akshay+sender@rafay.co
+            subject: 'et--on_init #{project.name}#'
+          type: email
+      type: notification
+    onSuccess:
+    - name: et-success-notification
+      onFailure: continue
+      options:
+        notification:
+          email:
+            bccs:
+            - akshayenuguru3+#{project.name}#@gmail.com
+            body: 'et--on_success #{project.name}# '
+            receivers:
+            - akshay+invalid-receiver@no-such-domain-99999.com
+            sender: akshay+sender@rafay.co
+            subject: 'et--on_success #{project.name}#'
+          type: email
+      type: notification
+  resources:
+  - kind: resourcetemplate
+    name: email-resourcetemplate-1
+    resourceOptions:
+      version: v2
+    type: dynamic
+  version: v2
+  versionState: draft

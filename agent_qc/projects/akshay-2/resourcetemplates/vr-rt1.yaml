@@ -1,0 +1,18 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ResourceTemplate
+metadata:
+  name: vr-rt1
+  project: akshay-2
+spec:
+  provider: custom
+  providerOptions:
+    custom:
+      tasks:
+      - name: vr-wfh1
+        onFailure: unspecified
+        skipConfig: {}
+        type: workflowHandler
+        workflowHandler:
+          name: vr-wfh1
+  version: v1
+  versionState: draft

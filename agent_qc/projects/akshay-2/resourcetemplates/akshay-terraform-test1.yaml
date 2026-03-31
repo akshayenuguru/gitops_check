@@ -1,0 +1,107 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ResourceTemplate
+metadata:
+  description: for practice
+  name: akshay-terraform-test1
+  project: akshay-2
+spec:
+  contexts:
+  - name: akshay-terraform-test1
+  hooks:
+    provider:
+      terraform:
+        deploy:
+          apply:
+            before:
+            - agents:
+              - name: test-agent
+              name: tera-apply
+              onFailure: unspecified
+              options:
+                notification:
+                  email:
+                    body: tera-apply
+                    ccs:
+                    - akshay+#{project.name}#@rafay.co
+                    - akshay+#{environment.name}#@rafay.co
+                    receivers:
+                    - akshay+receiver@gmal.com
+                    sender: akshay+sender@rafay.co
+                    subject: tera-apply
+                  type: email
+              type: notification
+          init:
+            before:
+            - agents:
+              - name: test-agent
+              description: tera-init
+              name: tera-init
+              onFailure: unspecified
+              options:
+                notification:
+                  email:
+                    body: tera-init-before
+                    ccs:
+                    - akshay+#{project.name}#@rafay.co
+                    - akshay+#{environment.name}#@rafay.co
+                    receivers:
+                    - akshay+receiver@rafay.co
+                    sender: akshay+sender@rafay.co
+                    subject: tera-init-before
+                  type: email
+              type: notification
+          output:
+            before:
+            - agents:
+              - name: test-agent
+              description: tera-output
+              name: tera-output
+              onFailure: unspecified
+              options:
+                notification:
+                  email:
+                    body: tera-output
+                    ccs:
+                    - akshay+#{project.name}#@rafay.co
+                    - akshay+#{environment.name}#@rafay.co
+                    receivers:
+                    - akshay+receiver@gmal.com
+                    sender: akshay+sender@rafay.co
+                    subject: tera-output
+                  type: email
+              type: notification
+          plan:
+            before:
+            - agents:
+              - name: test-agent
+              description: tera-plan
+              name: tera-plan
+              onFailure: unspecified
+              options:
+                notification:
+                  email:
+                    body: tera-plan
+                    ccs:
+                    - akshay+#{project.name}#@rafay.co
+                    - akshay+#{environment.name}#@rafay.co
+                    receivers:
+                    - akshay+receiver@gmal.com
+                    sender: akshay+sender@rafay.co
+                    subject: tera-plan
+                  type: email
+              type: notification
+        destroy:
+          destroy: {}
+          init: {}
+          plan: {}
+  provider: terraform
+  providerOptions:
+    terraform:
+      backendType: system
+      refresh: true
+  repositoryOptions:
+    branch: main
+    directoryPath: example-2
+    name: akshay-terraform-test1
+  version: v1
+  versionState: draft

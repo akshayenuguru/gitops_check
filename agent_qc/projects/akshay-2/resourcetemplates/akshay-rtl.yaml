@@ -1,0 +1,22 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ResourceTemplate
+metadata:
+  description: s3 bucket and k8's agent
+  name: akshay-rtl
+  project: akshay-2
+spec:
+  agents:
+  - name: akshay-agent
+  contexts:
+  - name: akshay-config
+  provider: terraform
+  providerOptions:
+    terraform:
+      backendType: system
+      refresh: true
+  repositoryOptions:
+    branch: main
+    directoryPath: terraform-basic-aws
+    name: akshay-git-s3
+  version: v3
+  versionState: draft

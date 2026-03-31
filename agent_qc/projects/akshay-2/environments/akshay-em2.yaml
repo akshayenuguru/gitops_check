@@ -1,0 +1,13 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  description: agent using k8's
+  name: akshay-em2
+  project: akshay-2
+spec:
+  agents:
+  - name: akshay-agent
+  template:
+    name: akshay-etl
+    version: v2
+    versionState: unspecified

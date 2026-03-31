@@ -1,0 +1,10 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: env2
+  project: akshay-2
+spec:
+  template:
+    name: et3
+    version: "1"
+    versionState: unspecified

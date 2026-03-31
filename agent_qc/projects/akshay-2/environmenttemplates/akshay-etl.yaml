@@ -1,0 +1,21 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: EnvironmentTemplate
+metadata:
+  description: for learning purpose
+  displayName: akshay-etl
+  name: akshay-etl
+  project: akshay-2
+spec:
+  agents:
+  - name: akshay-agent
+  allowScheduleOverrides: false
+  contexts:
+  - name: akshay-config
+  resources:
+  - kind: resourcetemplate
+    name: akshay-rtl
+    resourceOptions:
+      version: v3
+    type: dynamic
+  version: v3
+  versionState: draft

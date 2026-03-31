@@ -1,0 +1,20 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ResourceTemplate
+metadata:
+  name: rt3
+  project: akshay-2
+spec:
+  provider: custom
+  providerOptions:
+    custom:
+      tasks:
+      - agents:
+        - name: test-agent
+        name: docker-wfh
+        onFailure: unspecified
+        skipConfig: {}
+        type: workflowHandler
+        workflowHandler:
+          name: wfh4
+  version: "2"
+  versionState: draft

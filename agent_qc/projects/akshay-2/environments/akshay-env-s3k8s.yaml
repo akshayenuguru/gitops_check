@@ -1,0 +1,13 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  description: using s3 and k8's
+  name: akshay-env-s3k8s
+  project: akshay-2
+spec:
+  agents:
+  - name: akshay-agent
+  template:
+    name: akshay-etl
+    version: v3
+    versionState: unspecified

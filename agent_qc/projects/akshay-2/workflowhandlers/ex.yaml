@@ -1,0 +1,17 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: WorkflowHandler
+metadata:
+  name: ex
+  project: akshay-2
+spec:
+  config:
+    function:
+      kubeOptions:
+        securityContext:
+          readOnlyRootFileSystem: true
+      language: go
+      skipBuild: false
+      source: "n"
+      targetPlatforms:
+      - linux/amd64
+    type: function

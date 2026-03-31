@@ -1,0 +1,10 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: vr-env2
+  project: akshay-2
+spec:
+  template:
+    name: et2
+    version: v1
+    versionState: unspecified

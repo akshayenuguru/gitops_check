@@ -1,0 +1,71 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: EnvironmentTemplate
+metadata:
+  description: environment template created via terraform with hooks
+  name: auto-environmenttemplate-333093251
+  project: akshay-2
+spec:
+  agents:
+  - name: test-agent
+  allowScheduleOverrides: false
+  hooks:
+    onCompletion:
+    - name: et-on-completion
+      onFailure: continue
+      options:
+        notification:
+          email:
+            body: 'Environment Template: Operation completed for auto-environmenttemplate-333093251'
+            receivers:
+            - akshayenuguru3@gmail.com
+            sender: akshay+sender@rafay.co
+            subject: ET - Environment Operation Completed - auto-environmenttemplate-333093251
+          type: email
+      type: notification
+    onFailure:
+    - name: et-on-failure
+      onFailure: continue
+      options:
+        notification:
+          email:
+            body: 'Environment Template: Creation failed for auto-environmenttemplate-333093251'
+            receivers:
+            - akshayenuguru3@gmail.com
+            sender: akshay+sender@rafay.co
+            subject: ET - Environment Creation Failed - auto-environmenttemplate-333093251
+          type: email
+      type: notification
+    onInit:
+    - name: et-on-init
+      onFailure: continue
+      options:
+        notification:
+          email:
+            body: 'Environment Template: Initialization has started for auto-environmenttemplate-333093251'
+            receivers:
+            - akshayenuguru3@gmail.com
+            sender: akshay+sender@rafay.co
+            subject: ET - Environment Init Started - auto-environmenttemplate-333093251
+          type: email
+      type: notification
+    onSuccess:
+    - name: et-on-success
+      onFailure: continue
+      options:
+        notification:
+          email:
+            body: 'Environment Template: Successfully created and ready - auto-environmenttemplate-333093251'
+            receivers:
+            - akshayenuguru3@gmail.com
+            sender: akshay+sender@rafay.co
+            subject: ET - Environment Ready - auto-environmenttemplate-333093251
+          type: email
+      type: notification
+  resources:
+  - kind: resourcetemplate
+    name: auto-resourcetemplate-333093251
+    resourceOptions:
+      version: v1
+    type: dynamic
+  version: v1
+  versionState: draft

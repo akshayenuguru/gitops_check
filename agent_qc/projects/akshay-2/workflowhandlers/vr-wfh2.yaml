@@ -1,0 +1,20 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: WorkflowHandler
+metadata:
+  name: vr-wfh2
+  project: akshay-2
+spec:
+  config:
+    function:
+      kubeOptions:
+        securityContext:
+          readOnlyRootFileSystem: true
+      language: python
+      name: f1
+      skipBuild: false
+      source: "from logging import Logger\nfrom typing import Dict, Any\nimport time\n\ndef
+        handler(logger: Logger, request: Dict[str, Any]) -> Dict[str, Any]:\n    logger.info(f\"received
+        request, req: {request},{reguest.akshay}\")\n    "
+      targetPlatforms:
+      - linux/amd64
+    type: function

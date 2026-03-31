@@ -1,0 +1,22 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: email-env
+  project: akshay-2
+spec:
+  template:
+    name: email-envtemplate-1
+    version: v1
+    versionState: unspecified
+  variables:
+  - name: name
+    options:
+      description: This is the name of resource created
+      required: true
+    value: dev-env-resource
+    valueType: text
+  - name: aws_region
+    options:
+      required: true
+    value: us-west-2
+    valueType: text
