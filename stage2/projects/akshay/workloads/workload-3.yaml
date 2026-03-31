@@ -1,0 +1,15 @@
+apiVersion: apps.k8smgmt.io/v3
+kind: Workload
+metadata:
+  name: workload-3
+  project: akshay
+spec:
+  artifact:
+    artifact:
+      url:
+      - https://raw.githubusercontent.com/akshayenuguru/nginx-learning/refs/heads/main/workload3.yaml
+    type: Yaml
+  namespace: mks-namespace
+  placement:
+    selector: rafay.dev/clusterName=akshay-mks-aws
+  version: workload-3-v4-202601190748390000

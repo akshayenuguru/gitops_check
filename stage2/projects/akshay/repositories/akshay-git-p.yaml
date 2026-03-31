@@ -1,0 +1,16 @@
+apiVersion: integrations.k8smgmt.io/v3
+kind: Repository
+metadata:
+  name: akshay-git-p
+  project: akshay
+spec:
+  agents:
+  - {}
+  credentials:
+    password: sealed://credentials.password
+    username: akshayenuguru
+  endpoint: https://github.com/akshayenuguru/learning-private.git
+  options: {}
+  secret:
+    name: file://artifacts/akshay-git-p/sealed-secret.yaml
+  type: Git

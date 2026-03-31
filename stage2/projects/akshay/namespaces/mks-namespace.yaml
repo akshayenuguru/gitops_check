@@ -1,0 +1,18 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Namespace
+metadata:
+  name: mks-namespace
+  project: akshay
+spec:
+  limitRange:
+    container: {}
+    pod: {}
+  namespaceMeshPolicyParams: {}
+  networkPolicyParams: {}
+  placement:
+    labels:
+    - key: rafay.dev/clusterName
+      value: akshay-mks-test
+    - key: rafay.dev/clusterName
+      value: akshay-mks-aws
+  resourceQuotas: {}
