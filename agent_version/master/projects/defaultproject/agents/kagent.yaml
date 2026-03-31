@@ -4,7 +4,6 @@ metadata:
   name: kagent
   project: defaultproject
 spec:
-  active: true
   cluster:
     name: akshay-amd-mas
   config:
