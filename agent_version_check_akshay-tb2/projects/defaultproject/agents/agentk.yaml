@@ -16,4 +16,4 @@ spec:
         cpu: 255m
         memory: 1Gi
   type: Cluster
-  version: r4.0.0
+  version: r4.1.0
