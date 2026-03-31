@@ -4,7 +4,6 @@ metadata:
   name: k-agent
   project: akshay-2
 spec:
-  active: true
   cluster:
     name: agent-test-qc
   config:
