@@ -4,7 +4,6 @@ metadata:
   name: agentk
   project: defaultproject
 spec:
-  active: true
   cluster:
     name: c1-tb2
   config:
