@@ -4,7 +4,6 @@ metadata:
   name: k8s-agent
   project: akshay
 spec:
-  active: true
   cluster:
     name: akshay-amd-pre
   config:
