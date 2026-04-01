@@ -1,17 +1,16 @@
 apiVersion: gitops.k8smgmt.io/v3
 kind: Agent
 metadata:
-  name: akshay-docker-agent-prod
+  name: docker-agent-prod
   project: akshay-2
 spec:
   active: true
   config:
-    concurrency: 55
+    concurrency: 51
     docker:
       limits:
-        cpu: 255m
-        memory: 2Gi
+        cpu: 251m
     environment:
-      numWorkers: 15
+      numWorkers: 11
   type: Docker
-  version: r4.0.0
+  version: r4.1.0
