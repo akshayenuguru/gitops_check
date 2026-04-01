@@ -15,4 +15,3 @@ spec:
       limits:
         cpu: 255m
   type: Cluster
-  version: r3.0.1
