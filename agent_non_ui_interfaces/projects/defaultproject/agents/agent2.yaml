@@ -16,4 +16,4 @@ spec:
         cpu: "254"
         memory: 1Gi
   type: Cluster
-  version: r4.0.1
+  version: r4.0.0
