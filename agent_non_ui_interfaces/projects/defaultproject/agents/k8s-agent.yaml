@@ -4,7 +4,6 @@ metadata:
   name: k8s-agent
   project: defaultproject
 spec:
-  active: true
   cluster:
     name: akshay-amd-tb
   config:
