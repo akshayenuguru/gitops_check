@@ -1,0 +1,11 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: agent3
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: akshay-amd-tb
+  type: Cluster
+  version: r4.1.0
