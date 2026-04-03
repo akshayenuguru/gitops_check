@@ -1,0 +1,11 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: tf-k8s-agent-version-demo
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: akshay-amd-tb
+  type: Cluster
+  version: r4.1.0
