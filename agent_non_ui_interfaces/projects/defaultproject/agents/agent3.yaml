@@ -13,6 +13,6 @@ spec:
     kubernetes:
       limits:
         cpu: "254"
-        memory: 2Gi
+        memory: 3Gi
   type: Cluster
   version: r4.1.0
