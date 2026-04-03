@@ -8,12 +8,12 @@ spec:
   cluster:
     name: akshay-amd-tb
   config:
-    concurrency: 54
+    concurrency: 55
     environment:
-      numWorkers: 14
+      numWorkers: 15
     kubernetes:
       limits:
-        cpu: "254"
+        cpu: "255"
         memory: 1Gi
   type: Cluster
-  version: r4.0.1
+  version: r4.1.0
