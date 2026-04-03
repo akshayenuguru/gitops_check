@@ -7,9 +7,9 @@ spec:
   cluster:
     name: akshay-amd-tb-2
   config:
-    concurrency: -57
+    concurrency: -58
     environment:
-      numWorkers: -15
+      numWorkers: -16
     kubernetes:
       limits:
         cpu: "254"
