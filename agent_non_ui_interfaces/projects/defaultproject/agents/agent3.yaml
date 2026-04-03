@@ -4,11 +4,10 @@ metadata:
   name: agent3
   project: defaultproject
 spec:
-  active: true
   cluster:
     name: akshay-amd-tb-2
   config:
-    concurrency: -54
+    concurrency: -56
     environment:
       numWorkers: -14
     kubernetes:
