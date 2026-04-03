@@ -4,7 +4,6 @@ metadata:
   name: agent3
   project: defaultproject
 spec:
-  active: true
   cluster:
     name: akshay-amd-tb
   type: Cluster
