@@ -4,6 +4,7 @@ metadata:
   name: tf-k8s-agent-version-demo
   project: defaultproject
 spec:
+  active: true
   cluster:
     name: akshay-amd-tb
   config:
@@ -15,4 +16,4 @@ spec:
         cpu: 255m
         memory: 1Gi
   type: Cluster
-  version: r4.1.0
+  version: r4.0.0
