@@ -13,7 +13,7 @@ spec:
       numWorkers: 15
     kubernetes:
       limits:
-        cpu: "255"
-        memory: 2Gi
+        cpu: 255m
+        memory: 1Gi
   type: Cluster
   version: r4.0.1
