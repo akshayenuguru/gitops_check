@@ -4,7 +4,6 @@ metadata:
   name: tf-k8s-agent-version-demo
   project: defaultproject
 spec:
-  active: true
   cluster:
     name: akshay-amd-tb
   config:
