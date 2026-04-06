@@ -1,0 +1,19 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: agent3
+  project: defaultproject
+spec:
+  active: true
+  cluster:
+    name: akshay-amd-tb-2
+  config:
+    concurrency: -58
+    environment:
+      numWorkers: -16
+    kubernetes:
+      limits:
+        cpu: "254"
+        memory: 1Gi
+  type: Cluster
+  version: r4.0.1
