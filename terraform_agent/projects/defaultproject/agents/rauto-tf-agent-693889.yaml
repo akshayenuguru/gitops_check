@@ -4,7 +4,8 @@ metadata:
   name: rauto-tf-agent-693889
   project: defaultproject
 spec:
+  active: true
   cluster:
     name: akshay-amd-tb-2
   type: Cluster
-  version: r4.0.1
+  version: r4.1.0
