@@ -14,7 +14,7 @@ spec:
         skipConfig: {}
         type: workflowHandler
         workflowHandler:
-          name: wfh2
+          name: wfh3
   agents:
   - name: agent-doc-tb
   allowScheduleOverrides: false
