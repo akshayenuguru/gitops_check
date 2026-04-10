@@ -14,11 +14,11 @@ spec:
       tasks:
       - agents:
         - name: agent-doc-tb
-        name: wfh2
+        name: wfh3
         onFailure: unspecified
         skipConfig: {}
         type: workflowHandler
         workflowHandler:
-          name: wfh2
-  version: v1
+          name: wfh3
+  version: v2
   versionState: draft
