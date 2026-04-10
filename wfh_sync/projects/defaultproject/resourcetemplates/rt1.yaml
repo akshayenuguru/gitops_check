@@ -1,0 +1,24 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: ResourceTemplate
+metadata:
+  name: rt1
+  project: defaultproject
+spec:
+  agents:
+  - name: agent-doc-tb
+  contexts:
+  - name: cc
+  provider: custom
+  providerOptions:
+    custom:
+      tasks:
+      - agents:
+        - name: agent-doc-tb
+        name: wfh2
+        onFailure: unspecified
+        skipConfig: {}
+        type: workflowHandler
+        workflowHandler:
+          name: wfh2
+  version: v1
+  versionState: draft

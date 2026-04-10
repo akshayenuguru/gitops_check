@@ -1,0 +1,15 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: EnvironmentTemplate
+metadata:
+  name: et1
+  project: defaultproject
+spec:
+  allowScheduleOverrides: false
+  resources:
+  - kind: resourcetemplate
+    name: rt1
+    resourceOptions:
+      version: v1
+    type: dynamic
+  version: v1
+  versionState: draft
