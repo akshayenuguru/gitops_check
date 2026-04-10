@@ -4,5 +4,25 @@ metadata:
   name: et2
   project: defaultproject
 spec:
+  actions:
+  - name: a1
+    type: workflows
+    workflows:
+      tasks:
+      - name: wfh
+        onFailure: unspecified
+        skipConfig: {}
+        type: workflowHandler
+        workflowHandler:
+          name: wfh2
+  agents:
+  - name: agent-doc-tb
   allowScheduleOverrides: false
-  versionState: unspecified
+  contexts:
+  - name: cc
+  resources:
+  - kind: resource
+    name: sr1
+    type: static
+  version: v1
+  versionState: draft
