@@ -5,4 +5,13 @@ metadata:
   project: defaultproject
 spec:
   config:
+    function:
+      image: registry.dev.rafay-edge.net/dev/python-func:20260324111446
+      kubeOptions:
+        securityContext:
+          readOnlyRootFileSystem: true
+      language: python
+      skipBuild: true
+      targetPlatforms:
+      - linux/amd64
     type: function
