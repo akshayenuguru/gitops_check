@@ -9,6 +9,7 @@ spec:
       image: registry.dev.rafay-edge.net/dev/python-func:20260324111446
       kubeOptions:
         securityContext:
+          privileged: true
           readOnlyRootFileSystem: true
       language: python
       skipBuild: true
