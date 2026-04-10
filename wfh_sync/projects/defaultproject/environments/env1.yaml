@@ -1,0 +1,10 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: Environment
+metadata:
+  name: env1
+  project: defaultproject
+spec:
+  template:
+    name: et1
+    version: v1
+    versionState: unspecified
