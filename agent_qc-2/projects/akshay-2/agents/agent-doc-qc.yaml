@@ -1,0 +1,9 @@
+apiVersion: gitops.k8smgmt.io/v3
+kind: Agent
+metadata:
+  name: agent-doc-qc
+  project: akshay-2
+spec:
+  active: true
+  type: Docker
+  version: r4.1.0

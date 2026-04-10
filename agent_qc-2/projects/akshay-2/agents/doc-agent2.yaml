@@ -4,7 +4,6 @@ metadata:
   name: doc-agent2
   project: akshay-2
 spec:
-  active: true
   config:
     concurrency: 55
     docker:
