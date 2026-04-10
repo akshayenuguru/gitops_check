@@ -1,0 +1,8 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: WorkflowHandler
+metadata:
+  name: wfh2
+  project: defaultproject
+spec:
+  config:
+    type: function
