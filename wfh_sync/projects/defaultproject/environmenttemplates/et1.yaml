@@ -9,7 +9,7 @@ spec:
   - kind: resourcetemplate
     name: rt1
     resourceOptions:
-      version: v1
+      version: v2
     type: dynamic
-  version: v1
+  version: v2
   versionState: draft
