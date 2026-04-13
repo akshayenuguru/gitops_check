@@ -5,6 +5,6 @@ metadata:
   project: defaultproject
 spec:
   template:
-    name: et1
+    name: et2
     version: v2
     versionState: unspecified
