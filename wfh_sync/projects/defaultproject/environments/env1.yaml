@@ -6,5 +6,5 @@ metadata:
 spec:
   template:
     name: et1
-    version: v2
+    version: v1
     versionState: unspecified
