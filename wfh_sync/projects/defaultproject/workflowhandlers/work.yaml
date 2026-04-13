@@ -1,0 +1,8 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: WorkflowHandler
+metadata:
+  name: work
+  project: defaultproject
+spec:
+  config:
+    type: container
