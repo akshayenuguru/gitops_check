@@ -1,0 +1,59 @@
+apiVersion: eaas.envmgmt.io/v1
+kind: WorkflowHandler
+metadata:
+  name: workflow-handler2-task2-767752
+  project: rauto-eaas-767752
+spec:
+  config:
+    function:
+      cpuLimitMilli: "1024"
+      language: python
+      languageVersion: "3.6"
+      memoryLimitMb: "512"
+      skipBuild: false
+      source: |
+        from typing import Dict, Any
+        from logging import Logger
+        from python_sdk_rafay_workflow import sdk
+        import os
+
+
+        def handle(logger: Logger, request: Dict[str, Any]) -> Dict[str, Any]:
+            logger.info(f"received requesttt, req: {request}")
+
+            counter = 0
+            if "previous" in request:
+                logger.info(f"previous counter, prev: {request['previous']}")
+                counter = request["previous"].get("counter", 0)
+
+            logger.info(f"Printing env variable MY_ENV_1 : {os.getenv('MY_ENV_1')}")
+            logger.info(f"Printing env variable MY_ENV_2 : {os.getenv('MY_ENV_2')}")
+
+            resp = {
+                "output": "Hello World",
+                "request": request,
+            }
+
+            if "error" in request:
+                err_str = str(request["error"])
+                if err_str == "execute_again":
+                    if counter > 1:
+                        return resp
+                    raise sdk.ExecuteAgainException(err_str, rkey="rvalue", counter=counter + 1)
+                elif err_str == "transient":
+                    raise sdk.TransientException(err_str)
+                elif err_str == "failed":
+                    raise sdk.FailedException(err_str)
+                else:
+                    raise Exception(err_str)
+
+            logger.info(f"Sending response {request}")
+            return resp
+      targetPlatforms:
+      - linux/amd64
+    pollingConfig:
+      repeat: 15s
+      until: 1h
+    timeoutSeconds: 300
+    type: function
+  outputs: {}
