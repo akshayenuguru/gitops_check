@@ -5,10 +5,5 @@ metadata:
   project: akshay-2
 spec:
   active: true
-  sharing:
-    enabled: true
-    projects:
-    - id: rx28oml
-      name: defaultproject
   type: Docker
   version: r4.1.1
